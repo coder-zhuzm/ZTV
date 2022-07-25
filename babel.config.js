@@ -14,6 +14,7 @@ module.exports = {
           '@/config': './src/config',
           '@/components': './src/components',
           '@/assets': './src/assets',
+          '@/service': './src/service',
         },
       },
     ],

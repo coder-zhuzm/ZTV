@@ -1,5 +1,9 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {
+  NavigationContainer,
+  DefaultTheme,
+  DarkTheme,
+} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import EntIcon from 'react-native-vector-icons/Entypo';
 import AntIcon from 'react-native-vector-icons/AntDesign';
@@ -7,17 +11,24 @@ import IonIcon from 'react-native-vector-icons/Ionicons';
 import Home from '@/pages/Home';
 import Found from '@/pages/Found';
 import My from '@/pages/My';
+import {useColorScheme} from 'react-native';
 
 interface IProps {
   route: any;
   navigation: any;
 }
 
-const Tab = createBottomTabNavigator();
-
 export default () => {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  // const myTheme = {
+  //   isDarkMode ? DarkTheme : DefaultTheme
+  // };
+  const Tab = createBottomTabNavigator();
+
   return (
-    <NavigationContainer>
+    // 待修复  dark mode 有问题
+    <NavigationContainer theme={isDarkMode ? DarkTheme : DefaultTheme}>
       <Tab.Navigator screenOptions={{headerShown: false}}>
         <Tab.Screen
           name="Home"
