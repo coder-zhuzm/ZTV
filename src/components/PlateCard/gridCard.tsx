@@ -4,18 +4,26 @@ import {list} from '@/service/HomeConteoller';
 import {useState} from 'react';
 import {Grid} from '@ant-design/react-native';
 import Vitem from '@/components/Vitem';
-
+import axios from 'axios';
 const GridCard = (props: any) => {
   const {type} = props;
   const [lists, setLists] = useState<any>([]);
   const getList = useCallback(async () => {
-    // axios.get('http://localhost:7001/list').then((response: any) => {
-    //   console.log(JSON.parse(response));
-    // });
-    const {data} = await list();
-    if (data && data.length > 0) {
-      setLists(data);
-    }
+    axios
+      .get('https://t.zhuzm.icu/tv/res.json')
+      .then((res: any) => {
+        const {data} = res.data;
+        if (data && data.length > 0) {
+          setLists(data);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    // const {data} = await list();
+    // if (data && data.length > 0) {
+    //   setLists(data);
+    // }
   }, []);
 
   // render
@@ -30,6 +38,7 @@ const GridCard = (props: any) => {
   return (
     <Grid
       data={lists}
+      hasLine={false}
       columnNum={3}
       renderItem={renderItem}
       itemStyle={styles.gridItem}

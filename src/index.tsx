@@ -6,10 +6,6 @@ export default () => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <SafeAreaProvider>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={isDarkMode ? '#000000' : '#FFFFFF'}
-      />
       <Navigator />
     </SafeAreaProvider>
   );

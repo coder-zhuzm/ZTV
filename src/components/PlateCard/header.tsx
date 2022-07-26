@@ -1,10 +1,29 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
+import {useTheme} from '@react-navigation/native';
 
 interface IProps {
   title: string;
 }
-const header = (props: IProps) => {
+const Header = (props: IProps) => {
+  const {colors} = useTheme();
+  const styles = StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginVertical: 15,
+    },
+    title: {
+      fontSize: 20,
+      fontWeight: 'bold',
+      color: colors.text,
+    },
+    more: {
+      color: colors.text,
+      // textDecorationLine: 'underline',
+    },
+  });
   const {title} = props;
   return (
     <View style={styles.container}>
@@ -21,20 +40,5 @@ const header = (props: IProps) => {
     </View>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginVertical: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  more: {
-    color: '#b5b5b5',
-    // textDecorationLine: 'underline',
-  },
-});
-export default header;
+
+export default Header;

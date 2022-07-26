@@ -1,25 +1,24 @@
-import {StyleSheet, useColorScheme, View} from 'react-native';
+import {ScrollView, StyleSheet, useColorScheme} from 'react-native';
 import React from 'react';
 import Header from '@/components/Header';
 import Tabs from './Tabs';
+import PlateCard from '@/components/PlateCard';
+import HomeCarousel from './HomeCarousel';
+
 import {SafeAreaView} from 'react-native-safe-area-context';
+import GridCard from '@/components/PlateCard/gridCard';
+import HomeTab from './HomeTab';
 const Home = () => {
-  const isDarkMode = useColorScheme() === 'dark';
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      position: 'relative',
-      bottom: 0,
-      overflow: 'hidden',
-      backgroundColor: 'red',
-      // backgroundColor: isDarkMode ? '#000000' : '#FFFFFF',
-      color: isDarkMode ? '#FFFFFF' : '#000000',
     },
   });
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <Tabs />
+      {/* <HomeTab /> */}
     </SafeAreaView>
   );
 };

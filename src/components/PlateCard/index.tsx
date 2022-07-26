@@ -5,9 +5,10 @@ import GridCard from './gridCard';
 
 interface IProps {
   type: string;
+  hasHeader?: boolean;
 }
 const index = (props: IProps) => {
-  const {type} = props;
+  const {type, hasHeader = false} = props;
   const types = [
     {
       key: 'hot',
@@ -27,11 +28,14 @@ const index = (props: IProps) => {
   ];
   return (
     <View style={styles.container}>
-      <Header
-        title={
-          (type && types.find(item => item.key === type)?.title) || '卡片标题'
-        }
-      />
+      {hasHeader === true && (
+        <Header
+          title={
+            (type && types.find(item => item.key === type)?.title) || '卡片标题'
+          }
+        />
+      )}
+
       <GridCard type={type || 'hot'} />
     </View>
   );
