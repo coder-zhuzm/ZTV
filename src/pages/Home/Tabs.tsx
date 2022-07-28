@@ -77,7 +77,7 @@ export default () => {
             // contentContainerStyle={{flexDirection: 'row'}} //整个容器样式
             // labelStyle={{backgroundColor: colors.background}}  // 标签样式
             indicatorContainerStyle={styles.indicatorContainerStyle} //整个 tabs 样式
-            indicatorStyle={styles.indicatorStyle} //指示器样式
+            indicatorStyle={styles.indicatorStyle} //指t示器样式
             activeColor={colors.primary}
             inactiveColor={colors.text}
             bounces
